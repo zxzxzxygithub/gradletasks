@@ -21,3 +21,17 @@ makeJar.dependsOn(build)
 //在终端执行生成JAR包
 // gradlew makeJar
 ```
+```
+删除不需要的任务
+tasks.whenTaskAdded { task ->
+        if (task.name.equals("lint")
+                ||task.name.equals("clean")
+                ||task.name.equals("lintVitalRelease")
+                ||task.name.equals("testDebugUnitTest")
+                ||task.name.equals("testReleaseUnitTest")
+        ) {
+            System.out.println("dotask")
+            task.enabled = false
+        }
+    }
+```
